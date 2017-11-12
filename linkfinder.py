@@ -1,4 +1,4 @@
-import html.parser import HTMLParser 
+from html.parser import HTMLParser
 from urllib import parse
 
 class LinkFinder(HTMLParser):
@@ -9,14 +9,14 @@ class LinkFinder(HTMLParser):
         self.links = set()
 
     def handle_starttag(self, tag, attrs):
-        if tag == 'a'
-        for(attribute,value) in attrs:
-            if attribute == 'href':
-                url = parse.url.join(self.base_url, value)
-                self.links.add(url)
+        if tag == 'a':
+            for (attribute, value) in attrs:
+                if attribute == 'href':
+                    url = parseljoin(self.base_url, value)
+                    self.links.add(url)
 
     def page_links(self):
-        return self.links:
+        return self.links
 
     def error(self,message):
         pass
